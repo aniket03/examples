@@ -7,6 +7,15 @@ class RNNModel(nn.Module):
     """Container module with an encoder, a recurrent module, and a decoder."""
 
     def __init__(self, rnn_type, ntoken, ninp, nhid, nlayers, dropout=0.5, tie_weights=False):
+        """
+        rnn_type: Type of RNN cells to use GRU, LSTM, regular RNN
+        ntoken: No of words in the vocabulary
+        ninp: Size of embeddings.
+        nhid: Dimension of hidden unit of RNN layer. Or no of RNN cells in a layer 
+        nlayers: No of RNN layers
+        dropout: Dropout for each layer
+        tie_weights: Whether to tie encoder weights with decoder.
+        """
         super(RNNModel, self).__init__()
         self.ntoken = ntoken
         self.drop = nn.Dropout(dropout)
